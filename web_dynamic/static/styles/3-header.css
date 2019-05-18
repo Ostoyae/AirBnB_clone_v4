@@ -3,6 +3,7 @@
  * ------ Header
  */
 
+
 header {
 	background-color: #FFFFFF;
 	background-image: url("../images/logo.png");
@@ -23,6 +24,6 @@ div#api_status {
 	background-color: #CCCCCC;
 }
 
-div.available {
+#api_status.available {
 	background-color: #FF545F;
 }

@@ -22,7 +22,7 @@ host = os.getenv('HBNB_API_HOST', '*')
 port = os.getenv('HBNB_API_PORT', 5000)
 
 # Cross-Origin Resource Sharing
-cors = CORS(app, resources={r'/api/v1/*': {'origins': host}})
+cors = CORS(app, resources={r'/api/v1/*': {'origins': '*'}})
 
 # app_views BluePrint defined in api.v1.views
 app.register_blueprint(app_views)
@@ -91,4 +91,4 @@ if __name__ == "__main__":
     # initializes global error handling
     setup_global_errors()
     # start Flask app
-    app.run(host=host, port=port)
+    app.run(host='0.0.0.0', port=port)
