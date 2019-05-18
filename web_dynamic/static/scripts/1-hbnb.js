@@ -1,9 +1,5 @@
 $(document).ready(function () {
   let amenities = {};
-//  $('Div.amenities h4')
-//	.css('overflow', 'hidden') 
-//	.css('text-overflow', 'ellipsis')
-//	.css('white-space', 'nowrap');
   $('DIV.amenities UL.popover li').each(function () {
     if ($(this).find(':checkbox').prop('checked')) {
       amenities[$(this).attr('data-id')] = $(this).attr('data-name');
