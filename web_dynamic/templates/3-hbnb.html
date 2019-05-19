@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ url_for('static',
     filename='styles/font-awesome.css') }}?{{ cache_id }}">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="static/scripts/2-hbnb.js"></script>
+    <script type="text/javascript" src="static/scripts/3-hbnb.js?{{ cache_id }}"></script>
   </head>
 
   <!-- **********************
@@ -43,7 +43,7 @@
 	 ********************** -->
 
     <header>
-      <div id="api_status" class="available">
+      <div id="api_status">
       </div>
     </header>
     <main>
@@ -102,17 +102,16 @@
 	     BEGIN 1 PLACE
 	     ********************** -->
 
-	  {% for place in places|sort(attribute='name') %}
 
 	  <article>
 
 	    <div class="title">
 
-	      <h2>{{ place.name }}</h2>
+	      <h2>place.name</h2>
 
 	      <div class="price_by_night">
 
-		{{ place.price_by_night }}
+		place.price_by_night
 
 	      </div>
 	    </div>
@@ -121,8 +120,7 @@
 		<i class="fa fa-users fa-3x" aria-hidden="true"></i>
 
 		<br />
-
-		{{ place.max_guest }} Guests
+		      place.max_guest Guests
 
 	      </div>
 	      <div class="number_rooms">
@@ -130,14 +128,14 @@
 
 		<br />
 
-		{{ place.number_rooms }} Bedrooms
+		place.number_rooms Bedrooms
 	      </div>
 	      <div class="number_bathrooms">
 		<i class="fa fa-bath fa-3x" aria-hidden="true"></i>
 
 		<br />
 
-		{{ place.number_bathrooms }} Bathroom
+		place.number_bathrooms Bathroom
 
 	      </div>
 	    </div>
@@ -148,18 +146,17 @@
 
 	    <div class="user">
 
-	      <strong>Owner: {{ users[place.user_id] }}</strong>
+	      <strong>Owner: users[place.user_id]</strong>
 
 	    </div>
 	    <div class="description">
 
-	      {{ place.description }}
+	      place.description
 
 	    </div>
 
 	  </article> <!-- End 1 PLACE Article -->
 
-	  {% endfor %}
 
 	</section>
       </div>
