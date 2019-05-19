@@ -10,22 +10,7 @@ $.get('http://0.0.0.0:5001/api/v1/users/')
 
 $(document).ready(function () {
     // api call to get places
-    $.ajax({
-            type: "POST",
-            url: 'http://0.0.0.0:5001/api/v1/places_search/',
-            data: JSON.stringify({}),
-            contentType: 'application/json',
-            success: function (resp) {
-                create_article(resp);
-            }
-        }
-    )
-        .done(() => {
-            console.log('Received places data');
-        })
-        .fail((resp) => {
-            console.log(resp.responseText);
-        });
+    get_places_search();
 
     $.get('http://0.0.0.0:5001/api/v1/status/', (resp) => {
         if (resp.status === 'OK') {
@@ -68,6 +53,28 @@ $(document).ready(function () {
         }
     });
 });
+
+function get_places_search(json={}) {
+    //remove existing articles, however a naive solution.
+    $('section.places article').remove();
+    $.ajax({
+            type: "POST",
+            url: 'http://0.0.0.0:5001/api/v1/places_search/',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            success: function (resp) {
+                create_article(resp);
+            }
+        }
+    )
+        .done(() => {
+            console.log('Received places data');
+        })
+        .fail((resp) => {
+            console.log(resp.responseText);
+        });
+
+}
 
 
 // create_article - generates a html article for each place
