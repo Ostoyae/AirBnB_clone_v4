@@ -8,7 +8,10 @@ $.get('http://0.0.0.0:5001/api/v1/users/')
     console.log('Received user data and mapped to dictionary');
   });
 
+let articleHtml;
+
 $(document).ready(function () {
+  articleHtml = $('section.places article').clone();
   // api call to get places
   fetchPlaces();
 
@@ -92,10 +95,10 @@ function createArticle (data) {
 //
 // Returns Article.
 function setHTML (place, user) {
-  let html = $($.parseHTML(ArticleHTML));
-  let article = html.clone();
+  let article = articleHtml.clone();
   let username = users ? `${user.first_name} ${user.last_name}` : 'john doe';
 
+  article.css("visibility", '');
   article.find('.title h2').text(place.name).css('overflow-wrap', 'anywhere');
   article.find('.price_by_night').text(place.price_by_night);
   article.find('.max_guest').find('br').after(`${place.max_guest} Guests`);
@@ -106,57 +109,3 @@ function setHTML (place, user) {
 
   return article;
 }
-
-const ArticleHTML = '<article>\n' +
-    '\n' +
-    '\t    <div class="title">\n' +
-    '\n' +
-    '\t      <h2>place.name</h2>\n' +
-    '\n' +
-    '\t      <div class="price_by_night" style="resize: both; overflow: auto; " >\n' +
-    '\n' +
-    '\t\tplace.price_by_night\n' +
-    '\n' +
-    '\t      </div>\n' +
-    '\t    </div>\n' +
-    '\t    <div class="information">\n' +
-    '\t      <div class="max_guest">\n' +
-    '\t\t<i class="fa fa-users fa-3x" aria-hidden="true"></i>\n' +
-    '\n' +
-    '\t\t<br />\n' +
-    // '\t\t      place.max_guest Guests\n' +
-    '\n' +
-    '\t      </div>\n' +
-    '\t      <div class="number_rooms">\n' +
-    '\t\t<i class="fa fa-bed fa-3x" aria-hidden="true"></i>\n' +
-    '\n' +
-    '\t\t<br />\n' +
-    '\n' +
-    // '\t\tplace.number_rooms Bedrooms\n' +
-    '\t      </div>\n' +
-    '\t      <div class="number_bathrooms">\n' +
-    '\t\t<i class="fa fa-bath fa-3x" aria-hidden="true"></i>\n' +
-    '\n' +
-    '\t\t<br />\n' +
-    '\n' +
-    // '\t\tplace.number_bathrooms Bathroom\n' +
-    '\n' +
-    '\t      </div>\n' +
-    '\t    </div>\n' +
-    '\n' +
-    '\t    <!-- **********************\n' +
-    '\t\t USER\n' +
-    '\t\t **********************  -->\n' +
-    '\n' +
-    '\t    <div class="user">\n' +
-    '\n' +
-    '\t      <strong>Owner: users[place.user_id]</strong>\n' +
-    '\n' +
-    '\t    </div>\n' +
-    '\t    <div class="description">\n' +
-    '\n' +
-    '\t      place.description\n' +
-    '\n' +
-    '\t    </div>\n' +
-    '\n' +
-    '\t  </article> ';
