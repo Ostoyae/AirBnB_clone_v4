@@ -51,6 +51,11 @@ $(document).ready(function () {
       $('Div.amenities h4').text(Object.values(amenities));
     }
   });
+
+  $('BUTTON').click(function () {
+    // TODO do we need to do any prior cleanup?
+    fetchPlaces({ 'amenities': Object.keys(amenities) });
+  });
 });
 
 function fetchPlaces (json = {}) {
