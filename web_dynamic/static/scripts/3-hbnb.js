@@ -102,7 +102,7 @@ function set_html(place, user) {
     let article = html.clone();
     let usr_name = users ? `${user.first_name} ${user.last_name}` : 'john doe';
 
-    article.find('.title h2').text(place.name);
+    article.find('.title h2').text(place.name).css('overflow-wrap', 'anywhere');
     article.find('.price_by_night').text(place.price_by_night);
     article.find('.max_guest').find('br').after(`${place.max_guest} Guests`);
     article.find('.number_rooms').find('br').after(`${place.number_rooms} Bedrooms`);
