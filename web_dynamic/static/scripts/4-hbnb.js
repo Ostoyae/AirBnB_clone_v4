@@ -54,19 +54,7 @@ $(document).ready(function () {
 
   $('BUTTON').click(function () {
     // TODO do we need to do any prior cleanup?
-    $.ajax({
-      type: 'POST',
-      url: 'http://0.0.0.0:5001/api/v1/places_search/',
-      data: JSON.stringify({ 'amenities': Object.values(amenities) }),
-      contentType: 'application/json',
-      success: function (resp) {
-        fetchPlaces(resp);
-      }
-    }).done(() => {
-      console.log('Button clicked and article created successfully.');
-    }).fail((resp) => {
-      console.log(resp.responseText);
-    });
+    fetchPlaces({ 'amenities': Object.keys(amenities) });
   });
 });
 
