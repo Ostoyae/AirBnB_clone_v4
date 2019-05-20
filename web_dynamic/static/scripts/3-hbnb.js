@@ -10,7 +10,7 @@ $.get('http://0.0.0.0:5001/api/v1/users/')
 
 $(document).ready(function () {
   // api call to get places
-  get_places_search();
+  fetchPlaces();
 
   $.get('http://0.0.0.0:5001/api/v1/status/', (resp) => {
     if (resp.status === 'OK') {
