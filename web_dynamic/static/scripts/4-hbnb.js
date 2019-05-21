@@ -11,7 +11,7 @@ $.get('http://0.0.0.0:5001/api/v1/users/')
 let articleHTML;
 
 $(document).ready(function () {
-  articleHMTL = $('SECTION.places article').clone();
+  articleHTML = $('SECTION.places article').clone();
 
   // api call to get places
   fetchPlaces();
