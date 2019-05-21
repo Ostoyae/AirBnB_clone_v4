@@ -4,3 +4,8 @@ __pycache__
 dev/file.json
 versions/*
 /.idea/
+/.floo
+/.flooignore
+!/PuppetFile.pp
+!/inventory.yaml
+!/bolt.yaml
