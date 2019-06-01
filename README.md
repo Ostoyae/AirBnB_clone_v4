@@ -217,6 +217,8 @@ github repo
 * Kimberly Wong, [kjowong](https://github.com/kjowong) | [@kjowong](https://twitter.com/kjowong) | [kjowong@gmail.com](kjowong@gmail.com)
 * Carrie Ybay, [hicarrie](https://github.com/hicarrie) | [@hicarrie_](https://twitter.com/hicarrie_)
 * Jared Heck, [jarehec](https://github.com/jarehec) | [@jarehec](https://twitter.com/jarehec)
+* Fernando GONZÁLEZ-MORALES [fgonza52](https://github.com/fgonza52) | [FernandoGMO](https://twitter.com/FernandoGMO)
+* Martin Smith [Ostoyae](https://github.com/ostoyae) | [@_Ostoyae](https://twitter.com/_ostoyae)
 
 ## License
 
